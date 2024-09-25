@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+  // Step 1: Create variables and assign default values
+  char selectedPlan =
+      'S'; // Default meal plan (S for Standard, V for Vegetarian, F for Family)
+  int additionalItems = 2; // Number of additional items
+  char isTakeaway = 'y';   // 'y' for takeaway, 'n' for no takeway
+  float totalCost = 0.0;
+
+  // Step 2: Calculate the total cost based on the selected meal plan
+  if (selectedPlan == 'S') {
+    totalCost = 7.99;
+  } else if (selectedPlan == 'V') {
+    totalCost = 6.99;
+  } else if (selectedPlan == 'F') {
+    totalCost = 29.99;
+  }
+
+  // Add the cost of additional items
+  totalCost += additionalItems * 1.99;
+
+  // Step 3: Apply a 5% discount if the order is for takeaway
+  if (isTakeaway == 'y') {
+    totalCost *= 0.95;
+  }
+
+  // Step 4: Display the selected meal plan, additional items, takeaway status,
+  // and total cost
+  printf("Selected Meal Plan: %c\n", selectedPlan);
+  printf("Number of Additional Items: %d\n", additionalItems);
+  printf("Is Takeaway: %c\n", isTakeaway);
+  printf("Total Cost: £%.2f\n", totalCost);
+
+  return 0;
+}
