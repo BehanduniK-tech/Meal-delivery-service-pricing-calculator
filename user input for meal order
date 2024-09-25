@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main() {
+    // Step 1: Declare variables
+    char selectedPlan;
+    int additionalItems;
+    char isTakeaway;
+    float totalCost = 0.0;
+
+    // Step 2: Prompt the user to select a meal plan
+    printf("Select a meal plan ('S' for Standard, 'V' for Vegetarian, or 'F' for Family): ");
+    scanf(" %c", &selectedPlan);
+
+    // Step 3: Prompt the user to enter the number of additional items
+    printf("Enter the number of additional items: ");
+    scanf("%d", &additionalItems);
+
+    // Step 4: Prompt the user to specify if the order is for takeaway
+    printf("Is the order for takeaway? Enter 'y' or 'n': ");
+    scanf(" %c", &isTakeaway);
+
+    // Step 5: Calculate the total cost based on the selected meal plan
+    if (selectedPlan == 'S') {
+        totalCost = 7.99;
+    } else if (selectedPlan == 'V') {
+        totalCost = 6.99;
+    } else if (selectedPlan == 'F') {
+        totalCost = 29.99;
+    } else {
+        printf("Invalid meal plan selected.\n");
+        return 1; // Exit if an invalid meal plan is selected
+    }
+
+    // Step 6: Add the cost of additional items
+    totalCost += additionalItems * 1.99;
+
+    // Step 7: Display the total cost before discount
+    printf("Total before discount: £%.2f\n", totalCost);
+
+    // Step 8: Apply a 5% discount if the order is for takeaway
+    if (isTakeaway == 'y') {
+        totalCost *= 0.95;
+    }
+
+    // Step 9: Display the selected meal plan, additional items, takeaway status, and total cost
+    printf("Meal plan: ");
+    if (selectedPlan == 'S') {
+        printf("Standard\n");
+    } else if (selectedPlan == 'V') {
+        printf("Vegetarian\n");
+    } else if (selectedPlan == 'F') {
+        printf("Family\n");
+    }
+
+    printf("Additional items: %d\n", additionalItems);
+    printf("Takeaway: %s\n", (isTakeaway == 'y') ? "Yes" : "No");
+    printf("Total cost: £%.2f\n", totalCost);
+
+    return 0;
+}
